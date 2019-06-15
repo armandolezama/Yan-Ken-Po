@@ -7,3 +7,17 @@
     text-align: center;
     vertical-align: middle;
 }
+
+#g2-player-input1, #g2-selection-input1, #g2-player-input2, #g2-selection-input2{
+    width: 190px;
+}
+
+.g2p1-name, .g2p1-selection, .g2p2-name, .g2p2-selection {
+    display: inline-block;
+    width: 150px;
+    height: 40px;
+    font-size: 15pt;
+    border: solid;
+    text-align: center;
+    vertical-align: middle;
+}

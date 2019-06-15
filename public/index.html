@@ -22,19 +22,28 @@
     <div class="two-players-game">
 
         <section class="player1">
-            <input id="g2-player-input1" name="player1-name" type="text" placeholder="Escribe tu nombre, jugador 1">
-            <input id="g2-selection-input1" name="selection-1" type="text" placeholder="¿Piedra, papel o tijera?">
-            <button class="g2-player1-data" onclick="">Ingresar nombre</button>
-            <button class="g2-player1-selection" onclick="">Ingresar elección</button>
+            <input id="g2-player-input1" name="player1-name" type="text" placeholder="Escribe tu nombre, jugador 1" width=>
+            <input id="g2-selection-input1" name="selection-1" type="text" placeholder="¿Piedra, papel o tijeras?">
+            <button class="g2-player1-data" onclick="g2Player1NameF()">Ingresar nombre</button>
+            <button class="g2-player1-selection" onclick="g2Player1SelectionF()">Ingresar elección</button>
         </section>
 
         <section class="player2">
             <input id="g2-player-input2" name="player2-name" type="text" placeholder="Escribe tu nombre, jugador 2">
-            <input id="g2-selection-input2" name="selection-2" type="text" placeholder="¿Piedra, papel o tijera?">
-            <button class="g2-player2-data" onclick="">Ingresar nombre</button>
-            <button class="g2-player2-selection" onclick="">Ingresar elección</button>
+            <input id="g2-selection-input2" name="selection-2" type="text" placeholder="¿Piedra, papel o tijeras?">
+            <button class="g2-player2-data" onclick="g2Player2NameF()">Ingresar nombre</button>
+            <button class="g2-player2-selection" onclick="g2Player2SelectionF()">Ingresar elección</button>
         </section>
-        <button class="lets-play">Yan Ken Po!</button>
+
+        <section>
+            <h2 class="g2p1-name"></h2>
+            <h2 class="g2p1-selection"></h2>
+            <h2 class="g2p2-name"></h2>
+            <h2 class="g2p2-selection"></h2>
+        </section>
+
+        <h2 class="g2-winner"></h2>
+        <button class="g2ykp" onclick="yankenpog2()">Yan Ken Po!</button>
     </div>
     <script src="scripts.js"></script>    
 </body>
