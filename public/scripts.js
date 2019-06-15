@@ -11,11 +11,12 @@ const g1PlayerSelectionT = document.querySelector('.g1-result')
 const g1PlayerResult = document.querySelector('.g1-result');
 
 let openButton = ["",""]
+
 document.querySelector(".g1ykp").disabled = true;
 
 const g1Winner = document.querySelector('.g1-winner')
 
-const options = ['pieda', 'papel', 'tijera']
+const options = ['piedra', 'papel', 'tijeras']
 
 function g1PlayerNameF() {
     g1PlayerValue = g1PlayerInput.value;
@@ -36,30 +37,28 @@ function g1PlayerSelectionF(){
 }
 
 
-function yankenpoCo() {
+function yankenpoCo(){
+    let computerOption = Math.floor(Math.random()*2.999);
+    computerSelection = options[computerOption];
 
-    g1PlayerSelection = g1ResultInput.value;
+    if(
+       ( computerSelection === 'tijeras' && g1PlayerSelection === 'papel') ||
+       ( computerSelection === 'papel' && g1PlayerSelection === 'piedra') ||
+       ( computerSelection === 'piedra' && g1PlayerSelection === 'tijeras')
+    ) {
+        g1Winner.innerText = "Perdiste!";
+    } else if (
+        ( computerSelection === 'papel' && g1PlayerSelection === 'tijeras') ||
+        ( computerSelection === 'piedra' && g1PlayerSelection === 'papel') ||
+        ( computerSelection === 'tijeras' && g1PlayerSelection === 'piedra') 
+    ){
+        g1Winner.innerText = "Tú ganas!"
+    } else if (g1PlayerSelection === computerSelection)
+
+    g1Winner.innerText = "Empate!"
 }
 
+/* A partir de aquí comienzan las funciones del segundo juego para dos jugadores*/
 
 
 
-
-/*
-const playerInput2 = document.querySelector('#player-input1');
-var playerValue2 = playerInput2.value;*/
-
-
-
-let computerSelection = Math.floor(Math.random()*2.99)
-
-/*
-function guardarNombre(){
-    playerValue1 = playerInput1.value;
-    playerName.innerText = playerValue1
-};
-*/
-
-function startGame(){
-
-}
