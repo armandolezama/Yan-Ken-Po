@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Yan Ken Po (O piedra, papel o tijera)</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="individual-game">
+        <section>
+            <input id="g1-player-input" name="player-name" type="text" placeholder="Escribe tu nombre">
+            <button class="g1-player1-data" onclick="g1PlayerNameF()">Ingresar nombre</button>
+            <h2 class="g1-player-name"></h2>
+            <input id="g1-selection-input" name="selection" type="text" placeholder="¿Piedra, papel o tijera?">
+            <button class="g1-player1-selection" onclick="g1PlayerSelectionF()">Ingresar elección</button>
+            <h2 class="g1-result"></h2>
+        </section>
+        <h2 class="g1-winner"></h2>
+        <button class="g1ykp" onclick="yankenpoCo()">Yan Ken Po!</button>
+    </div>
+
+    <div class="two-players-game">
+
+        <section class="player1">
+            <input id="g2-player-input1" name="player1-name" type="text" placeholder="Escribe tu nombre, jugador 1">
+            <input id="g2-selection-input1" name="selection-1" type="text" placeholder="¿Piedra, papel o tijera?">
+            <button class="g2-player1-data" onclick="">Ingresar nombre</button>
+            <button class="g2-player1-selection" onclick="">Ingresar elección</button>
+        </section>
+
+        <section class="player2">
+            <input id="g2-player-input2" name="player2-name" type="text" placeholder="Escribe tu nombre, jugador 2">
+            <input id="g2-selection-input2" name="selection-2" type="text" placeholder="¿Piedra, papel o tijera?">
+            <button class="g2-player2-data" onclick="">Ingresar nombre</button>
+            <button class="g2-player2-selection" onclick="">Ingresar elección</button>
+        </section>
+        <button class="lets-play">Yan Ken Po!</button>
+    </div>
+    <script src="scripts.js"></script>    
+</body>
+</html>

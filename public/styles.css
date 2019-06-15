@@ -1,0 +1,9 @@
+.g1-player-name, .g1-result{
+    display: inline-block;
+    width: 150px;
+    height: 40px;
+    font-size: 15pt;
+    border: solid;
+    text-align: center;
+    vertical-align: middle;
+}
