@@ -13,6 +13,7 @@ const g1PlayerName = document.querySelector('.g1-player-name');
 const g1PlayerSelectionT = document.querySelector('.g1-result')
 
 */
+/*Las siguientes funciones, constantes y variables salen de uso
 let openButton = ["",""]
 
 document.querySelector(".g1ykp").disabled = true;
@@ -30,7 +31,7 @@ function g1PlayerNameF() {
     }
 }
 
-/*La siguiente línea sale de uso*/ 
+
 function g1PlayerSelectionF(){
     g1PlayerSelection = g1ResultInput.value.toLowerCase();
     g1PlayerSelectionT.innerText = g1PlayerSelection;
@@ -38,9 +39,9 @@ function g1PlayerSelectionF(){
     if(openButton[0] == "1" && openButton[1] == "1"){
         document.querySelector(".g1ykp").disabled = false;
     }
-}
+}*/
 
-var computerYes = false; /*Este comando funcionará para seleccionar si el jugador va contra la PC o contra otro jugador */
+
 var secondOption = ""; /* Esta línea se sobreescribirá con la segunda opción cuando sea solicitada*/
 
 function yankenpoCo(firstOption, secondOption){
@@ -69,7 +70,7 @@ function yankenpoCo(firstOption, secondOption){
 }
 
 /* A partir de aquí comienzan las funciones del segundo juego para dos jugadores*/
-
+/*Las siguientes funciones, constantes y variables salen de uso
 const g2PlayerInput1 = document.querySelector("#g2-player-input1");
 var g2Player1Value = g2PlayerInput1.value;
 
@@ -145,3 +146,4 @@ function yankenpog2(){
  
      g2Winner.innerText = "Empate!"
  }
+*/

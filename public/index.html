@@ -13,66 +13,91 @@
             <h2>Escoge la modalidad</h2>
         </div>
 
-        <form action="" id="choice-mode">
-            <div class="first-mode-container">
-                <label for=""> 
-                    <img src="" alt="">
-                </label>
-                <input type="text" name="" id="">
-            </div>
+        <form action="" id="mode-choice">
+            <label for="">
+                <img src="" alt="">
+                <h4>Contra la PC</h4>
+            </label>
+            <input type="radio" name="" id="" value="pc">
+            
+            <label for="">
+                <img src="" alt="">
+                <h4>Contra otro jugador</h4>
+            </label>
+            <input type="radio" name="" id="" value="player">
 
-            <div class="second-mode-container">
-                <label for=""> 
-                    <img src="" alt="">
-                </label>
-                <input type="text" name="" id="">
-            </div>
         </form>
+
     </section>
 
-    <section class="first choose">
+    <section class="section-choice">
             <section>
-                <form action="" id="first-choice">
-                    <label for=""></label>
-                    <input id="" name="player-name" type="text" placeholder="Escribe tu nombre">
-        <!-- Elementos correspondientes al juego sin personalizar
-                    <button class="g1-player1-data" onclick="g1PlayerNameF()">Ingresar nombre</button>
-                    <h2 class="g1-player-name"></h2>
-            -->    
-                    <label for=""></label>
-                    <input type="radio" name="selection" id="" value="Piedra">
 
-                    <label for=""></label>
-                    <input type="radio" name="selection" id="" value="Papel">
+                <div class="title-container">
+                    <h2 class="player1">Jugador 1, escoge</h2>
+                    <h2 class="player2">Jugador 2, escoge</h2>
+                    <h2 class="vs-pc">Escoge</h2>
+                </div>
 
-                    <label for=""></label>
-                    <input type="radio" name="selection" id="" value="Tijeras">
-        <!-- Elementos correspondientes al juego sin personalizar
-                    <button class="g1-player1-selection" onclick="g1PlayerSelectionF()">Ingresar elección</button>
-                    <h2 class="g1-result"></h2>
-            -->
-                </form>
+
+                <div class="vs-pc-forever">
+                    <button>Contra la PC</button>
+                </div>
+                        
+                <div class="secondary-options">
+                    <button>Regresar</button>
+                    <button>Continuar</button>
+                </div>
+
+                <div>
+                    <form action="" id="choose">    
+            <!-- Elementos correspondientes al juego sin personalizar
+                        <button class="g1-player1-data" onclick="g1PlayerNameF()">Ingresar nombre</button>
+                        <h2 class="g1-player-name"></h2>
+                -->    
+                        <label for=""></label>
+                        <input type="radio" name="selection" id="rock" value="Piedra">
+
+                        <label for=""></label>
+                        <input type="radio" name="selection" id="paper" value="Papel">
+
+                        <label for=""></label>
+                        <input type="radio" name="selection" id="scissors" value="Tijeras">
+            <!-- Elementos correspondientes al juego sin personalizar
+                        <button class="g1-player1-selection" onclick="g1PlayerSelectionF()">Ingresar elección</button>
+                        <h2 class="g1-result"></h2>
+                -->
+                    </form>
+                </div>
             </section>
     </section>
 
 
-    <section class="first-ready">
+    <section class="ready-screen">
         <!-- Aquí se encontrarán dos clases de elementos: unos correspondiente a vs pc y otros vs player-->
+
+        <button>Continuar</button>
+        <button>Regresar</button>
     </section>
 
     <section class="results">
         <!-- Aquí se encontrarán dos clases de elementos: unos correspondiente a vs pc y otros vs player-->
 
+        <h3>Jugador 1</h3>
+        <img src="" alt="">
+
+        <h3>Jugador 2</h3>
+        <img src="" alt="">
+
+        <h3>Jugador</h3>
+        <img src="" alt="">
+
+        <h3>PC</h3>
+        <img src="" alt="">
+
     </section>
 
-    <section class="second-choose">
-
-    </section>
-    <section class="second-ready">
-
-    </section>
-
-
+    <!-- Sección perteneciente al primer juego no personalizado
     <section class="individual-game">
 
         <h2 class="g1-winner"></h2>
@@ -105,6 +130,7 @@
         <h2 class="g2-winner"></h2>
         <button class="g2ykp" onclick="yankenpog2()">Yan Ken Po!</button>
     </section>
+    -->
     <script src="scripts.js"></script>    
 </body>
 </html>
