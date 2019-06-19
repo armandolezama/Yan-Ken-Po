@@ -7,53 +7,79 @@
 </head>
 <body>
 
-    <div class="first-screen">
+    <section class="first-screen">
 
-    </div>
+        <div class="title-container">
+            <h2>Escoge la modalidad</h2>
+        </div>
 
-    <div class="first choose">
+        <form action="" id="choice-mode">
+            <div class="first-mode-container">
+                <label for=""> 
+                    <img src="" alt="">
+                </label>
+                <input type="text" name="" id="">
+            </div>
 
-    </div>
+            <div class="second-mode-container">
+                <label for=""> 
+                    <img src="" alt="">
+                </label>
+                <input type="text" name="" id="">
+            </div>
+        </form>
+    </section>
+
+    <section class="first choose">
+            <section>
+                <form action="" id="first-choice">
+                    <label for=""></label>
+                    <input id="" name="player-name" type="text" placeholder="Escribe tu nombre">
+        <!-- Elementos correspondientes al juego sin personalizar
+                    <button class="g1-player1-data" onclick="g1PlayerNameF()">Ingresar nombre</button>
+                    <h2 class="g1-player-name"></h2>
+            -->    
+                    <label for=""></label>
+                    <input type="radio" name="selection" id="" value="Piedra">
+
+                    <label for=""></label>
+                    <input type="radio" name="selection" id="" value="Papel">
+
+                    <label for=""></label>
+                    <input type="radio" name="selection" id="" value="Tijeras">
+        <!-- Elementos correspondientes al juego sin personalizar
+                    <button class="g1-player1-selection" onclick="g1PlayerSelectionF()">Ingresar elección</button>
+                    <h2 class="g1-result"></h2>
+            -->
+                </form>
+            </section>
+    </section>
 
 
-    <div class="first-ready">
+    <section class="first-ready">
         <!-- Aquí se encontrarán dos clases de elementos: unos correspondiente a vs pc y otros vs player-->
-    </div>
+    </section>
 
-    <div class="results">
+    <section class="results">
         <!-- Aquí se encontrarán dos clases de elementos: unos correspondiente a vs pc y otros vs player-->
 
-    </div>
+    </section>
 
-    <div class="second-choose">
+    <section class="second-choose">
 
-    </div>
-    <div class="second-ready">
+    </section>
+    <section class="second-ready">
 
-    </div>
+    </section>
 
 
-    <div class="individual-game">
-        <section>
+    <section class="individual-game">
 
-            <label for=""></label>
-            <input id="g1-player-input" name="player-name" type="text" placeholder="Escribe tu nombre">
-
-            <button class="g1-player1-data" onclick="g1PlayerNameF()">Ingresar nombre</button>
-            <h2 class="g1-player-name"></h2>
-            
-            <label for=""></label>
-            <input id="g1-selection-input" name="selection" type="text" placeholder="¿Piedra, papel o tijera?">
-            
-            <button class="g1-player1-selection" onclick="g1PlayerSelectionF()">Ingresar elección</button>
-            <h2 class="g1-result"></h2>
-        
-        </section>
         <h2 class="g1-winner"></h2>
         <button class="g1ykp" onclick="yankenpoCo()">Yan Ken Po!</button>
-    </div>
+    </section>
 
-    <div class="two-players-game">
+    <section class="two-players-game">
 
         <section class="player1">
             <input id="g2-player-input1" name="player1-name" type="text" placeholder="Escribe tu nombre, jugador 1" width=>
@@ -78,7 +104,7 @@
 
         <h2 class="g2-winner"></h2>
         <button class="g2ykp" onclick="yankenpog2()">Yan Ken Po!</button>
-    </div>
+    </section>
     <script src="scripts.js"></script>    
 </body>
 </html>

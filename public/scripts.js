@@ -1,4 +1,8 @@
 
+
+
+
+/* Esta sección corresponde al primer juego sin personalizar 
 const g1PlayerInput = document.querySelector('#g1-player-input');
 var g1PlayerValue = g1PlayerInput.value;
 
@@ -7,6 +11,8 @@ var g1PlayerSelection = g1ResultInput.value;
 
 const g1PlayerName = document.querySelector('.g1-player-name');
 const g1PlayerSelectionT = document.querySelector('.g1-result')
+
+*/
 let openButton = ["",""]
 
 document.querySelector(".g1ykp").disabled = true;
@@ -24,6 +30,7 @@ function g1PlayerNameF() {
     }
 }
 
+/*La siguiente línea sale de uso*/ 
 function g1PlayerSelectionF(){
     g1PlayerSelection = g1ResultInput.value.toLowerCase();
     g1PlayerSelectionT.innerText = g1PlayerSelection;
@@ -33,21 +40,27 @@ function g1PlayerSelectionF(){
     }
 }
 
+var computerYes = false; /*Este comando funcionará para seleccionar si el jugador va contra la PC o contra otro jugador */
+var secondOption = ""; /* Esta línea se sobreescribirá con la segunda opción cuando sea solicitada*/
 
-function yankenpoCo(){
-    let computerOption = Math.floor(Math.random()*2.999);
-    computerSelection = options[computerOption];
+function yankenpoCo(firstOption, secondOption){
+
+    if (computerYes){
+        let computerOption = Math.floor(Math.random()*2.999);
+        secondOption = options[computerOption];
+    }
+
 
     if(
-       ( computerSelection === 'tijeras' && g1PlayerSelection === 'papel') ||
-       ( computerSelection === 'papel' && g1PlayerSelection === 'piedra') ||
-       ( computerSelection === 'piedra' && g1PlayerSelection === 'tijeras')
+       ( firstOption === 'tijeras' && secondOption === 'papel') ||
+       ( firstOption === 'papel' && secondOption === 'piedra') ||
+       ( firstOption === 'piedra' && secondOption === 'tijeras')
     ) {
         g1Winner.innerText = "Perdiste!";
     } else if (
-        ( computerSelection === 'papel' && g1PlayerSelection === 'tijeras') ||
-        ( computerSelection === 'piedra' && g1PlayerSelection === 'papel') ||
-        ( computerSelection === 'tijeras' && g1PlayerSelection === 'piedra') 
+        ( firstOption === 'papel' && secondOption === 'tijeras') ||
+        ( firstOption === 'piedra' && secondOption === 'papel') ||
+        ( firstOption === 'tijeras' && secondOption === 'piedra') 
     ){
         g1Winner.innerText = "Tú ganas!"
     } else if (g1PlayerSelection === computerSelection)
