@@ -39,7 +39,7 @@
 }
 
 input{
-    display: none;
+    /*display: none;*/
 }
 
 .first-options {
@@ -50,25 +50,25 @@ label, h3{
     display: inline-block;
 }
 .options {
-    width: 400px;
-    height: 300px;
+    width: 350px;
+    height: 280px;
 }
 
 .secondary-options {
     display: inline-block;
     width: 19%;
-    height: 70%;
+    height: 90%;
 }
 
 .second-options{
     display: inline-block;
-    height: 80px;
+    height: 50%;
     width: 200px;
     vertical-align: middle;
 }
 
 button {
-    vertical-align: middle;
+    margin-top: 50%;
 }
 
 section{
