@@ -41,6 +41,16 @@ function g1PlayerSelectionF(){
     }
 }*/
 
+var player1 = {
+    name = "",
+    election = ""
+};
+
+var player2 = {
+    name = "",
+    election = "",
+    isCPU = false
+};
 
 var secondOption = ""; /* Esta línea se sobreescribirá con la segunda opción cuando sea solicitada*/
 

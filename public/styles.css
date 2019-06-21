@@ -1,4 +1,4 @@
-.g1-player-name, .g1-result, .g1-winner {
+/*.g1-player-name, .g1-result, .g1-winner {
     display: inline-block;
     width: 150px;
     height: 40px;
@@ -20,4 +20,58 @@
     border: solid;
     text-align: center;
     vertical-align: middle;
+}*/
+
+*{
+    margin: 0;
+    padding: 0;
 }
+
+
+.first-screen, .section-choice, .ready-screen, .results {
+    display: block;
+    width: 100vw;
+    height: 100vh;
+}
+
+.mode-option-case{
+    display: inline-block;
+}
+
+input{
+    display: none;
+}
+
+.first-options {
+    display: inline-block;
+    width: 79%;
+}
+label, h3{
+    display: inline-block;
+}
+.options {
+    width: 400px;
+    height: 300px;
+}
+
+.secondary-options {
+    display: inline-block;
+    width: 19%;
+    height: 70%;
+}
+
+.second-options{
+    display: inline-block;
+    height: 80px;
+    width: 200px;
+    vertical-align: middle;
+}
+
+button {
+    vertical-align: middle;
+}
+
+section{
+    border-style: solid;
+}
+

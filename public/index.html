@@ -14,70 +14,98 @@
         </div>
 
         <form action="" id="mode-choice">
-            <label for="">
-                <img src="" alt="">
-                <h4>Contra la PC</h4>
-            </label>
-            <input type="radio" name="" id="" value="pc">
+            <div class="mode-option-case">
+                <label for="versus-pc">
+                    <img src="imagenes/versus-pc.jpg" alt="versus-pc">
+                    <h4>Contra la PC</h4>
+                </label>
+            </div>
+            <input type="radio" name="mode-game" id="versus-pc" value="pc">
             
-            <label for="">
-                <img src="" alt="">
-                <h4>Contra otro jugador</h4>
-            </label>
-            <input type="radio" name="" id="" value="player">
+            <div class="mode-option-case">
+                <label for="versus-human">
+                    <img src="imagenes/versus-human.jpg" alt="versus-human">
+                    <h4>Contra otro jugador</h4>
+                </label>
+            </div>
+            <input type="radio" name="mode-game" id="versus-human" value="player">
 
         </form>
 
     </section>
 
     <section class="section-choice">
-            <section>
 
-                <div class="title-container">
-                    <h2 class="player1">Jugador 1, escoge</h2>
-                    <h2 class="player2">Jugador 2, escoge</h2>
-                    <h2 class="vs-pc">Escoge</h2>
-                </div>
+        <article class="title-container">
+            <h2 class="player1">Jugador 1, escoge</h2>
+            <h2 class="player2">Jugador 2, escoge</h2>
+            <h2 class="vs-pc">Escoge</h2>
+        </article>
 
-
-                <div class="vs-pc-forever">
-                    <button>Contra la PC</button>
-                </div>
-                        
-                <div class="secondary-options">
-                    <button>Regresar</button>
-                    <button>Continuar</button>
-                </div>
-
-                <div>
-                    <form action="" id="choose">    
-            <!-- Elementos correspondientes al juego sin personalizar
+        <article class="first-options">
+            <form action="" id="choose">    
+    <!-- Elementos correspondientes al juego sin personalizar
                         <button class="g1-player1-data" onclick="g1PlayerNameF()">Ingresar nombre</button>
                         <h2 class="g1-player-name"></h2>
                 -->    
-                        <label for=""></label>
-                        <input type="radio" name="selection" id="rock" value="Piedra">
+                <label for="rock">
+                    <img class="options" src="imagenes/greekArmy.jpg" alt="">
+                    <h3>Los griegos</h3>
+                </label>
+                <input type="radio" name="selection" id="rock" value="Piedra">
 
-                        <label for=""></label>
-                        <input type="radio" name="selection" id="paper" value="Papel">
+                <label for="paper">
+                    <img class="options" src="imagenes/japaneseArmy.jpeg" alt="">
+                    <h3>Los japoneses</h3>
+                </label>
+                <input type="radio" name="selection" id="paper" value="Papel">
 
-                        <label for=""></label>
-                        <input type="radio" name="selection" id="scissors" value="Tijeras">
+                <label for="scissors">
+                    <img class="options" src="imagenes/hunosArmy.jpg" alt="">
+                    <h3>Los hunos</h3>
+                </label>
+                <input type="radio" name="selection" id="scissors" value="Tijeras">
             <!-- Elementos correspondientes al juego sin personalizar
                         <button class="g1-player1-selection" onclick="g1PlayerSelectionF()">Ingresar elección</button>
                         <h2 class="g1-result"></h2>
                 -->
-                    </form>
-                </div>
-            </section>
+            </form>
+        </article>
+
+        <article class="secondary-options">
+            <div class="second-options">
+                <button>Contra la PC</button>
+                <button>Contra un humano</button>
+            </div>
+            <div class="second-options">
+                <button>Regresar</button>
+                <button>Continuar</button>
+            </div>
+        </article>
+
     </section>
 
 
     <section class="ready-screen">
         <!-- Aquí se encontrarán dos clases de elementos: unos correspondiente a vs pc y otros vs player-->
 
-        <button>Continuar</button>
-        <button>Regresar</button>
+        <article class="first-options">
+            <h2>
+                ¿Estás listo? Trae a tu contrincante.
+            </h2>
+        </article>
+
+        <article class="secondary-options">
+            <div class="second-options">
+                <button>Contra la PC</button>
+                <button>Contra un humano</button>
+            </div>
+            <div class="second-options">
+                <button>Regresar</button>
+                <button>Continuar</button>
+            </div>
+        </article>
+
     </section>
 
     <section class="results">
