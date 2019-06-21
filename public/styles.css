@@ -45,7 +45,9 @@ input{
 .first-options {
     display: inline-block;
     width: 79%;
+    height: 100%;
 }
+
 label, h3{
     display: inline-block;
 }
@@ -57,7 +59,7 @@ label, h3{
 .secondary-options {
     display: inline-block;
     width: 19%;
-    height: 90%;
+    height: 80%;
 }
 
 .second-options{
@@ -69,6 +71,11 @@ label, h3{
 
 button {
     margin-top: 50%;
+}
+
+.ready-signboard {
+    font-size: 40pt;
+    display: inline-block;
 }
 
 section{
