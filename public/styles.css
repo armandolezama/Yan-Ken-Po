@@ -43,17 +43,21 @@ input{
 }
 
 .first-options {
-    display: inline-block;
+    display: inline-flex;
     width: 79%;
     height: 100%;
+    justify-content: center;
+    align-items: center;
 }
 
-label, h3{
-    display: inline-block;
-}
 .options {
-    width: 350px;
-    height: 280px;
+    display: inline-block;
+    width: 20vw;
+    height: 15vh;
+}
+
+.option-img {
+    width: 80%;
 }
 
 .secondary-options {
