@@ -10,28 +10,30 @@
     <section class="first-screen">
 
         <div class="title-container">
-            <h2>Escoge la modalidad</h2>
+            <h2 class="title">Elige a tu contrincante</h2>
         </div>
 
-        <form action="" id="mode-choice">
-            <div class="mode-option-case">
-                <label for="versus-pc">
-                    <img src="imagenes/versus-pc.jpg" alt="versus-pc">
-                    <h4>Contra la PC</h4>
-                </label>
-            </div>
-            <input type="radio" name="mode-game" id="versus-pc" value="pc">
-            
-            <div class="mode-option-case">
-                <label for="versus-human">
-                    <img src="imagenes/versus-human.jpg" alt="versus-human">
-                    <h4>Contra otro jugador</h4>
-                </label>
-            </div>
-            <input type="radio" name="mode-game" id="versus-human" value="player">
-
-        </form>
-
+        <article class="the-form">
+            <form action="" id="mode-choice">
+                <div class="mode-option-case">
+                    <label for="versus-pc">
+                        <img class="mode-img" src="imagenes/versus-pc.jpg" alt="versus-pc">
+                        <h4 class="versus-text" >Contra la PC</h4>
+                    </label>
+                </div>
+                <input type="radio" name="mode-game" id="versus-pc" value="pc">
+                
+                <div class="mode-option-case">
+                    <label for="versus-human">
+                        <img class="mode-img" src="imagenes/versus-human.jpg" alt="versus-human">
+                        <h4 class="versus-text" >Contra otro jugador</h4>
+                    </label>
+                </div>
+                <input type="radio" name="mode-game" id="versus-human" value="player">
+            </form>
+        </article>
+        
+        <button class="first-continue">Escoger civilización</button>
     </section>
 
     <section class="section-choice">
@@ -80,12 +82,12 @@
 
         <article class="secondary-options">
             <div class="second-options">
-                <button>Contra la PC</button>
-                <button>Contra un humano</button>
+                <button class="btn-options">Contra la PC</button>
+                <button class="btn-options">Contra un humano</button>
             </div>
             <div class="second-options">
-                <button>Regresar</button>
-                <button>Continuar</button>
+                <button class="btn-options">Regresar</button>
+                <button class="btn-options">Continuar</button>
             </div>
         </article>
 
@@ -99,16 +101,19 @@
             <h2 class="ready-signboard">
                 ¿Estás listo? Trae a tu contrincante.
             </h2>
+            <h2 class="ready-signboard">
+                ¿Listo?
+            </h2>
         </article>
 
         <article class="secondary-options">
             <div class="second-options">
-                <button>Contra la PC</button>
-                <button>Contra un humano</button>
+                <button class="btn-options">Contra la PC</button>
+                <button class="btn-options">Contra un humano</button>
             </div>
             <div class="second-options">
-                <button>Regresar</button>
-                <button>Continuar</button>
+                <button class="btn-options">Regresar</button>
+                <button class="btn-options">Continuar</button>
             </div>
         </article>
 
@@ -117,17 +122,21 @@
     <section class="results">
         <!-- Aquí se encontrarán dos clases de elementos: unos correspondiente a vs pc y otros vs player-->
 
-        <h3>Jugador 1</h3>
-        <img src="" alt="">
+        <div class="2-players-results">
+            <h3>Jugador 1</h3>
+            <img src="" alt="">
+    
+            <h3>Jugador 2</h3>
+            <img src="" alt="">
+        </div>
 
-        <h3>Jugador 2</h3>
-        <img src="" alt="">
-
-        <h3>Jugador</h3>
-        <img src="" alt="">
-
-        <h3>PC</h3>
-        <img src="" alt="">
+        <div class="pc-player-result">
+            <h3>Jugador</h3>
+            <img src="" alt="">
+    
+            <h3>PC</h3>
+            <img src="" alt="">
+        </div>
 
     </section>
 
