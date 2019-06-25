@@ -1,7 +1,4 @@
 
-
-
-
 /* Esta sección corresponde al primer juego sin personalizar 
 const g1PlayerInput = document.querySelector('#g1-player-input');
 var g1PlayerValue = g1PlayerInput.value;
@@ -20,7 +17,6 @@ document.querySelector(".g1ykp").disabled = true;
 
 const g1Winner = document.querySelector('.g1-winner')
 
-const options = ['piedra', 'papel', 'tijeras']
 
 function g1PlayerNameF() {
     g1PlayerValue = g1PlayerInput.value;
@@ -41,26 +37,43 @@ function g1PlayerSelectionF(){
     }
 }*/
 
+const gameMode = document.querySelector('#mode-choice');
+const playerName = document.querySelector('.player-name');
+
+const options = ['Piedra', 'Papel', 'Tijeras']
 var player1 = {
-    name = "",
-    election = ""
+    name : "",
+    election : "",
+    imagen: ""
 };
 
 var player2 = {
-    name = "",
-    election = "",
-    isCPU = false
+    name : "",
+    election : "",
+    imagen: ""
+
 };
 
-var secondOption = ""; /* Esta línea se sobreescribirá con la segunda opción cuando sea solicitada*/
+let isCPU = false;
 
-function yankenpoCo(firstOption, secondOption){
-
-    if (computerYes){
+function goToChoice(){
+    if(gameMode.modeGame.value == 'pc') {
+        player2.name = "CPU"
         let computerOption = Math.floor(Math.random()*2.999);
-        secondOption = options[computerOption];
+        player2.election = options[computerOption];
+        isCPU = true;
+    } else if(gameMode.modeGame.value == 'player'){
+        player2.name = "";
+        player2.election = "";
+        isCPU = false;
+    } else {
+        alert('Error');
+        console.log('Error')
     }
+}
 
+
+function yankenpo(firstOption, secondOption){
 
     if(
        ( firstOption === 'tijeras' && secondOption === 'papel') ||

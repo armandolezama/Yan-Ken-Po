@@ -21,7 +21,7 @@
                         <h4 class="versus-text" >Contra la PC</h4>
                     </label>
                 </div>
-                <input type="radio" name="mode-game" id="versus-pc" value="pc">
+                <input class="input-options" type="radio" name="modeGame" id="versus-pc" value="pc">
                 
                 <div class="mode-option-case">
                     <label for="versus-human">
@@ -29,19 +29,20 @@
                         <h4 class="versus-text" >Contra otro jugador</h4>
                     </label>
                 </div>
-                <input type="radio" name="mode-game" id="versus-human" value="player">
+                <input class="input-options" type="radio" name="modeGame" id="versus-human" value="player">
             </form>
         </article>
         
-        <button class="first-continue">Escoger civilización</button>
+        <button class="first-continue" onclick="goToChoice()">Escoger civilización</button>
     </section>
 
     <section class="section-choice">
 
         <article class="title-container">
             <h2 class="player1">Jugador 1, escoge</h2>
-            <h2 class="player2">Jugador 2, escoge</h2>
+            <h2 class="player2-element">Jugador 2, escoge</h2>
             <h2 class="vs-pc">Escoge</h2>
+            <input class="player-name" placeholder="Escribe tu nombre, guerrero" type="text">
         </article>
 
         <article class="first-options">
@@ -55,7 +56,7 @@
                         <img class="option-img" src="imagenes/greekArmy.jpg" alt="">
                         <h3>Los griegos</h3>
                     </label>
-                    <input type="radio" name="selection" id="rock" value="Piedra">
+                    <input class="input-options" type="radio" name="selection" id="rock" value="Piedra">
                 </div>
 
                 <div class="options">
@@ -63,7 +64,7 @@
                         <img class="option-img" src="imagenes/japaneseArmy.jpeg" alt="">
                         <h3>Los japoneses</h3>
                     </label>
-                    <input type="radio" name="selection" id="paper" value="Papel">
+                    <input class="input-options" type="radio" name="selection" id="paper" value="Papel">
                 </div>
 
                 <div class="options">
@@ -71,7 +72,7 @@
                         <img class="option-img" src="imagenes/hunosArmy.jpg" alt="">
                         <h3>Los hunos</h3>
                     </label>
-                    <input type="radio" name="selection" id="scissors" value="Tijeras">
+                    <input class="input-options" type="radio" name="selection" id="scissors" value="Tijeras">
                 </div>
             <!-- Elementos correspondientes al juego sin personalizar
                         <button class="g1-player1-selection" onclick="g1PlayerSelectionF()">Ingresar elección</button>
@@ -98,11 +99,11 @@
         <!-- Aquí se encontrarán dos clases de elementos: unos correspondiente a vs pc y otros vs player-->
 
         <article class="first-options">
-            <h2 class="ready-signboard">
+            <h2 class="player2-element">
                 ¿Estás listo? Trae a tu contrincante.
             </h2>
             <h2 class="ready-signboard">
-                ¿Listo?
+                ¿Todo listo? ¡A pelear!
             </h2>
         </article>
 
@@ -121,21 +122,18 @@
 
     <section class="results">
         <!-- Aquí se encontrarán dos clases de elementos: unos correspondiente a vs pc y otros vs player-->
-
-        <div class="2-players-results">
-            <h3>Jugador 1</h3>
-            <img src="" alt="">
+        <div class="center-results">
+            <div class="two-players-results">
+                <h3 class="figthers">Jugador 1</h3>
+                <h3 class="the-results"></h3>
+                <img class="img-result" src="" alt="">
+            </div>
     
-            <h3>Jugador 2</h3>
-            <img src="" alt="">
-        </div>
-
-        <div class="pc-player-result">
-            <h3>Jugador</h3>
-            <img src="" alt="">
-    
-            <h3>PC</h3>
-            <img src="" alt="">
+            <div class="two-players-results">
+                <h3 class="figthers">Jugador 2</h3>
+                <h3 class="the-results"></h3>
+                <img class="img-result" src="" alt="">
+            </div>
         </div>
 
     </section>

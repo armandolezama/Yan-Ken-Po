@@ -26,11 +26,20 @@
     background-size: cover;
 }
 
+.ready-screen {
+    background-image: url(imagenes/background-third.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 .title-container {
     display: inline-flex;
     width: 100vw;
+    height: 8vh;
     justify-content: center;
+    background-color: aliceblue;
 }
+
 
 .the-form {
     display: block;
@@ -80,7 +89,7 @@
     font-family: cursive;
 }
 
-input{
+.input-options {
     display: none;
 }
 
@@ -97,6 +106,14 @@ input{
     width: 18vw;
     height: 19vw;
     margin: 3vh 2vw;
+}
+
+.options h3 {
+    font-size: 30pt;
+    font-family: carolignia, Geneva, Tahoma, sans-serif;
+    color:#CFA414;
+    background-color: beige;
+    margin: 0 0; 
 }
 
 .options:hover {
@@ -126,9 +143,31 @@ input{
     margin-top: 50%;
 }
 
-.ready-signboard {
-    font-size: 40pt;
+.two-players-results {
     display: inline-block;
+    width: 25vw;
+    height: 55vh;
+    margin: 3vh 2vw;
+}
+
+.center-results {
+    width: 60vw;
+    margin: 0 auto;
+}
+
+.ready-signboard, .player2-element, .player1, .vs-pc {
+    font-size: 7vh;
+    display: inline-block;
+}
+
+.figthers, .the-results {
+    display: block;
+}
+
+.img-result {
+    display: inline-block;
+    width: 18vw;
+    height: 16vw;
 }
 
 section{
