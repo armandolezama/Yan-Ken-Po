@@ -39,12 +39,13 @@
     <section class="section-choice">
 
         <article class="title-container">
-            <h2 class="player1">Jugador 1, escoge</h2>
-            <h2 class="player2-element">Jugador 2, escoge</h2>
-            <h2 class="vs-pc">Escoge</h2>
+            <h2 class="player1">Jugador 1 ¿Cómo te llamas? </h2>
+            <h2 class="player2-element">Jugador 2 ¿Cómo te llamas?</h2>
+            <h2 class="vs-pc">¿Quién enfrentará a la máquina?</h2>
             <input class="player-name" placeholder="Escribe tu nombre, guerrero" type="text">
         </article>
-
+        
+        <h2 class="choose-wisely">Elige sabiamente</h2>
         <article class="first-options">
             <form action="" id="choose">    
     <!-- Elementos correspondientes al juego sin personalizar
@@ -53,7 +54,7 @@
                 --> 
                 <div class="options">
                     <label for="rock">
-                        <img class="option-img" src="imagenes/greekArmy.jpg" alt="">
+                        <img id="piedra" class="option-img" src="imagenes/greekArmy.jpg" alt="">
                         <h3>Los griegos</h3>
                     </label>
                     <input class="input-options" type="radio" name="selection" id="rock" value="Piedra">
@@ -61,7 +62,7 @@
 
                 <div class="options">
                     <label for="paper">
-                        <img class="option-img" src="imagenes/japaneseArmy.jpeg" alt="">
+                        <img id="papel" class="option-img" src="imagenes/japaneseArmy.jpeg" alt="">
                         <h3>Los japoneses</h3>
                     </label>
                     <input class="input-options" type="radio" name="selection" id="paper" value="Papel">
@@ -69,7 +70,7 @@
 
                 <div class="options">
                     <label for="scissors">
-                        <img class="option-img" src="imagenes/hunosArmy.jpg" alt="">
+                        <img id="tijeras" class="option-img" src="imagenes/hunosArmy.jpg" alt="">
                         <h3>Los hunos</h3>
                     </label>
                     <input class="input-options" type="radio" name="selection" id="scissors" value="Tijeras">
@@ -83,12 +84,12 @@
 
         <article class="secondary-options">
             <div class="second-options">
-                <button class="btn-options">Contra la PC</button>
-                <button class="btn-options">Contra un humano</button>
+                <button id="vs-pc1" class="btn-options">Contra la PC</button>
+                <button id="vs-human1" class="btn-options">Contra un humano</button>
             </div>
             <div class="second-options">
-                <button class="btn-options">Regresar</button>
-                <button class="btn-options">Continuar</button>
+                <button onclick="backToLastScren()" class="btn-options">Regresar</button>
+                <button onclick="goToNextScreen()" class="btn-options">Continuar</button>
             </div>
         </article>
 
@@ -99,7 +100,7 @@
         <!-- Aquí se encontrarán dos clases de elementos: unos correspondiente a vs pc y otros vs player-->
 
         <article class="first-options">
-            <h2 class="player2-element">
+            <h2 id="vs-human3" class="player2-element">
                 ¿Estás listo? Trae a tu contrincante.
             </h2>
             <h2 class="ready-signboard">
@@ -109,12 +110,12 @@
 
         <article class="secondary-options">
             <div class="second-options">
-                <button class="btn-options">Contra la PC</button>
-                <button class="btn-options">Contra un humano</button>
+                <button id="vs-pc2" class="btn-options">Contra la PC</button>
+                <button id="vs-human2" class="btn-options">Contra un humano</button>
             </div>
             <div class="second-options">
-                <button class="btn-options">Regresar</button>
-                <button class="btn-options">Continuar</button>
+                <button onclick="backToLastScren()" class="btn-options">Regresar</button>
+                <button onclick="goToNextScreen()" class="btn-options">Continuar</button>
             </div>
         </article>
 
@@ -136,6 +137,7 @@
             </div>
         </div>
 
+        <button onclick="restart()">Volver a jugador</button>
     </section>
 
     <!-- Sección perteneciente al primer juego no personalizado

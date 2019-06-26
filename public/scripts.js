@@ -1,44 +1,44 @@
+const gameMode = document.querySelector('#mode-choice');
 
-/* Esta sección corresponde al primer juego sin personalizar 
-const g1PlayerInput = document.querySelector('#g1-player-input');
-var g1PlayerValue = g1PlayerInput.value;
+//Las siguientes constantes son las pantallas 
+const firstScreen = document.querySelector('.first-screen');
+const secondScreen = document.querySelector('.section-choice')
+const thirdScren = document. querySelector('.ready-screen')
+const resultScreen = document.querySelector('.results')
 
-const g1ResultInput = document.querySelector('#g1-selection-input');
-var g1PlayerSelection = g1ResultInput.value;
+//Esta función permite mantener seleccionadas las opciones elegidas 
+const myOptions = document.querySelectorAll('.options')
+const modeCase = document.querySelectorAll('.mode-option-case')
 
-const g1PlayerName = document.querySelector('.g1-player-name');
-const g1PlayerSelectionT = document.querySelector('.g1-result')
+//Estas constantes permiten almacenar los datos de uno o dos jugadores, según las respuestas previas.
+const playerName = document.querySelector('.player-name');
+const optionSelected = document.querySelector('#first-options');
 
-*/
-/*Las siguientes funciones, constantes y variables salen de uso
-let openButton = ["",""]
+let readyHeadGo = document.querySelector('.ready-signboard');
 
-document.querySelector(".g1ykp").disabled = true;
+let collectionPC = {
+    choiceHead: document.querySelector('.vs-pc'),
+    choiceButton: document.querySelector('#vs-human1'),
+    readyButton: document.querySelector('#vs-human2')
+};
 
-const g1Winner = document.querySelector('.g1-winner')
 
-
-function g1PlayerNameF() {
-    g1PlayerValue = g1PlayerInput.value;
-    g1PlayerName.innerText = g1PlayerValue;
-    openButton[0] = "1";
-    if(openButton[0] == "1" && openButton[1] == "1"){
-        document.querySelector(".g1ykp").disabled = false;
-    }
+let collectionPlayer = {
+    choiceHeadP1: document.querySelector('.player1'),
+    choiceHeadP2: document.querySelector('.player2-element'),
+    choiceButton: document.querySelector('#vs-pc1'),
+    readyHeadReady: document.querySelector('#vs-human3'),
+    readyButton: document.querySelector('#vs-pc2')
 }
 
-
-function g1PlayerSelectionF(){
-    g1PlayerSelection = g1ResultInput.value.toLowerCase();
-    g1PlayerSelectionT.innerText = g1PlayerSelection;
-    openButton[1] = "1";
-    if(openButton[0] == "1" && openButton[1] == "1"){
-        document.querySelector(".g1ykp").disabled = false;
-    }
-}*/
-
-const gameMode = document.querySelector('#mode-choice');
-const playerName = document.querySelector('.player-name');
+let checkListEvents = {
+    modeSelected: false,
+    firstPlayerName: false,
+    firstPlayerSelection: false,
+    secondPlayerName: false,
+    secondPlayerSelection: false,
+    theResulst: false
+}
 
 const options = ['Piedra', 'Papel', 'Tijeras']
 var player1 = {
@@ -51,27 +51,103 @@ var player2 = {
     name : "",
     election : "",
     imagen: ""
-
+    
 };
 
-let isCPU = false;
+//let isCPU = false;
+
+for(let element of myOptions) {
+    element.addEventListener('click', function() {
+      for(let label of myOptions) {
+          label.classList.remove('active');
+      }
+      element.classList.add('active');
+    })
+}
+  
+for(let element of modeCase){
+  element.addEventListener('click', function() {
+      for(let label of modeCase) {
+          label.classList.remove('active');
+        }
+        element.classList.add('active');
+    })
+}
+
+function pcEnable() {
+    collectionPC.choiceHead.style.display = 'inline-block';
+    collectionPC.choiceButton.style.display = 'inline-block';
+    collectionPC.readyButton.style.display = 'inline-block';
+}
+    
+function pcDisabled(){
+    collectionPC.choiceHead.style.display = 'none';
+    collectionPC.choiceButton.style.display = 'none';
+    collectionPC.readyButton.style.display = 'none';
+}
+
+function player2Enable() {
+    collectionPlayer.choiceHeadP1.style.display = 'inline-block';
+    collectionPlayer.choiceHeadP2.style.display = 'inline-block';
+    collectionPlayer.choiceButton.style.display = 'inline-block';
+    collectionPlayer.readyHeadReady.style.display = 'inline-block';
+    collectionPlayer.readyButton.style.display = 'inline-block';    
+}
+
+function player2Disable() {
+    collectionPlayer.choiceHeadP1.style.display = 'none';
+    collectionPlayer.choiceHeadP2.style.display = 'none';
+    collectionPlayer.choiceButton.style.display = 'none';
+    collectionPlayer.readyHeadReady.style.display = 'none';
+    collectionPlayer.readyButton.style.display = 'none';
+}
 
 function goToChoice(){
     if(gameMode.modeGame.value == 'pc') {
-        player2.name = "CPU"
+        player2.name = "CPU";
         let computerOption = Math.floor(Math.random()*2.999);
         player2.election = options[computerOption];
-        isCPU = true;
+//        isCPU = true;
+        checkListEvents.modeSelected = true;
+        checkListEvents.secondPlayerName = true;
+        checkListEvents.secondPlayerSelection = true;
+        secondScreen.style.display = 'block';
+        readyHeadGo.style.display = 'inline-block';
+        //firstScreen.style.display = 'none';
+        pcEnable();
+        player2Disable();
     } else if(gameMode.modeGame.value == 'player'){
         player2.name = "";
         player2.election = "";
-        isCPU = false;
+//        isCPU = false;
+        checkListEvents.modeSelected = true;
+        checkListEvents.secondPlayerName = false;
+        checkListEvents.secondPlayerSelection = false;
+        secondScreen.style.display = 'block';
+        //firstScreen.style.display = 'none';
+        pcDisabled();
+        player2Enable();
+        collectionPlayer.choiceHeadP2.style.display = 'none';
+        readyHeadGo.style.display = 'none';
     } else {
-        alert('Error');
-        console.log('Error')
+        alert('Escoge una opción para continuar');
+        console.log('Nothing selected');
     }
 }
 
+
+function backToLastScren() {
+
+}
+
+function goToNextScreen() {
+
+
+}
+
+function restart() {
+
+}
 
 function yankenpo(firstOption, secondOption){
 
@@ -92,66 +168,7 @@ function yankenpo(firstOption, secondOption){
     g1Winner.innerText = "Empate!"
 }
 
-/* A partir de aquí comienzan las funciones del segundo juego para dos jugadores*/
-/*Las siguientes funciones, constantes y variables salen de uso
-const g2PlayerInput1 = document.querySelector("#g2-player-input1");
-var g2Player1Value = g2PlayerInput1.value;
-
-const g2SelectionInput1 = document.querySelector("#g2-selection-input1");
-var g2Selection1Value = g2SelectionInput1.value.toLowerCase();
-
-
-const g2PlayerInput2 = document.querySelector("#g2-player-input2");
-var g2Player2Value = g2PlayerInput2.value;
-
-const g2SelectionInput2 = document.querySelector("#g2-selection-input2");
-var g2Selection2Value = g2SelectionInput2.value.toLowerCase();
-
-const g2p1Name = document.querySelector(".g2p1-name");
-const g2p1Selection = document.querySelector(".g2p1-selection");
-const g2p2Name = document.querySelector(".g2p2-name");
-const g2p2Selection = document.querySelector(".g2p2-selection");
-
-const g2Winner = document.querySelector(".g2-winner")
-let g2OpenButton = ["", "", "", ""]
-document.querySelector(".g2ykp").disabled = true;
-
-function g2Player1NameF(){
-    g2Player1Value = g2PlayerInput1.value;
-    g2p1Name.innerText = g2Player1Value;
-    g2OpenButton[0] = "1";
-    if(g2OpenButton[0] == "1" && g2OpenButton[1] == "1" && g2OpenButton[2] == "1" && g2OpenButton[3] == "1"){
-        document.querySelector(".g2ykp").disabled = false;
-    }
-}
-
-function g2Player1SelectionF(){
-    g2Selection1Value = g2SelectionInput1.value.toLowerCase();
-    g2p1Selection.innerText = g2Selection1Value;
-    g2OpenButton[1] = "1";
-    if(g2OpenButton[0] == "1" && g2OpenButton[1] == "1" && g2OpenButton[2] == "1" && g2OpenButton[3] == "1"){
-        document.querySelector(".g2ykp").disabled = false;
-    }
-}
-
-function g2Player2NameF(){
-    g2Player2Value = g2PlayerInput2.value;
-    g2p2Name.innerText = g2Player2Value;
-    g2OpenButton[2] = "1";
-    if(g2OpenButton[0] == "1" && g2OpenButton[1] == "1" && g2OpenButton[2] == "1" && g2OpenButton[3] == "1"){
-        document.querySelector(".g2ykp").disabled = false;
-    }
-}
-
-function g2Player2SelectionF(){
-    g2Selection2Value = g2SelectionInput2.value.toLowerCase();
-    g2p2Selection.innerText = g2Selection2Value;
-    g2OpenButton[3] = "1";
-    if(g2OpenButton[0] == "1" && g2OpenButton[1] == "1" && g2OpenButton[2] == "1" && g2OpenButton[3] == "1"){
-        document.querySelector(".g2ykp").disabled = false;
-    }
-}
-
+/* 
 function yankenpog2(){
     if(
         ( g2Selection2Value === 'tijeras' && g2Selection1Value === 'papel') ||

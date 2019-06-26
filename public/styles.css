@@ -8,7 +8,25 @@
     src: url(fonts/CAROBTN_.TTF);
 }
 
-.first-screen, .section-choice, .ready-screen, .results {
+.first-screen {
+    display: block;
+    width: 100vw;
+    height: 100vh;
+}
+
+.section-choice {
+    display: block;
+    width: 100vw;
+    height: 100vh;
+}
+
+.ready-screen {
+    display: block;
+    width: 100vw;
+    height: 100vh;
+}
+
+.results {
     display: block;
     width: 100vw;
     height: 100vh;
@@ -32,13 +50,19 @@
     background-size: cover;
 }
 
+.results {
+    background-image: url(imagenes/background-victory.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 .title-container {
     display: inline-flex;
     width: 100vw;
     height: 8vh;
     justify-content: center;
-    background-color: aliceblue;
 }
+
 
 
 .the-form {
@@ -66,9 +90,12 @@
     transform: 1.4;
 }
 
-.mode-option-case img:hover{
+.mode-option-case.active {
+    border: 8px dashed;
+    border-color: rgba(151, 19, 4, 0.699);
     transform: 1.4;
 }
+
 
 .versus-text, .title {
     font-size: 30pt;
@@ -78,8 +105,12 @@
 }
 
 .title{
-    font-size: 50pt;}
+    font-size: 50pt;
+}
 
+section article h2 {
+    background-color: beige;
+}
 
 .first-continue {
     font-size: 30pt;
@@ -96,7 +127,7 @@
 .first-options {
     display: inline-flex;
     width: 79%;
-    height: 100%;
+    height: 90%;
     justify-content: center;
     align-items: center;
 }
@@ -117,7 +148,12 @@
 }
 
 .options:hover {
-    border: solid #FD1D03;
+    border: 7px solid #FD1D03;
+    transform: 1.2;
+}
+
+.options.active {
+    border: 7px solid rgba(151, 19, 4, 0.699);
     transform: 1.2;
 }
 
@@ -156,8 +192,26 @@
 }
 
 .ready-signboard, .player2-element, .player1, .vs-pc {
-    font-size: 7vh;
     display: inline-block;
+    font-size: 7vh;
+}
+
+.player-name, .choose-wisely { 
+    display: block;
+}
+
+.player-name{
+    margin: 0 10px;
+    font-size: 2vh;
+    width: 13vw;
+}
+
+.choose-wisely {
+    width: 18vw;
+    font-family: carolignia, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 5vh;
+    margin: 10px auto;
+    background: beige;
 }
 
 .figthers, .the-results {
