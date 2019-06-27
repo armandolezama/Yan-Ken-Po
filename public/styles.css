@@ -224,6 +224,7 @@ section article h2 {
     display: inline-block;
     width: 18vw;
     height: 16vw;
+    border: 1vh  double;
 }
 
 section{
@@ -233,8 +234,9 @@ section{
 .figthers, .the-winer, .the-results {
     font-family: Geneva, Tahoma, sans-serif;
     font-size: 3vh;
-
+    width: 18vw;
     background-color: cadetblue;
+    border: 1vh  double;
 }
 
 .restart-button{
