@@ -3,7 +3,7 @@ const gameMode = document.querySelector('#mode-choice');
 //Las siguientes constantes son las pantallas 
 const firstScreen = document.querySelector('.first-screen');
 const secondScreen = document.querySelector('.section-choice')
-const thirdScren = document. querySelector('.ready-screen')
+const thirdScreen = document. querySelector('.ready-screen')
 const resultScreen = document.querySelector('.results')
 
 //Esta función permite mantener seleccionadas las opciones elegidas 
@@ -39,6 +39,7 @@ let checkListEvents = {
     firstPlayerName: false,
     firstPlayerSelection: false,
     thirdScreenWasShowed: false,
+    thirdScreenSecondShowed: false,
     thirdScreenShouldShowed: false,
     secondPlayerName: false,
     secondPlayerSelection: false,
@@ -69,7 +70,7 @@ for(let element of myOptions) {
     })
 }
   
-for(let element of modeCase){
+for(let element of modeCase) {
   element.addEventListener('click', function() {
       for(let label of modeCase) {
           label.classList.remove('active');
@@ -84,7 +85,7 @@ function pcEnable() {
     collectionPC.readyButton.style.display = 'inline-block';
 }
     
-function pcDisabled(){
+function pcDisabled() {
     collectionPC.choiceHead.style.display = 'none';
     collectionPC.choiceButton.style.display = 'none';
     collectionPC.readyButton.style.display = 'none';
@@ -106,7 +107,7 @@ function player2Disable() {
     collectionPlayer.readyButton.style.display = 'none';
 }
 
-function goToChoice(){
+function goToChoice() {
     if(gameMode.modeGame.value == 'pc') {
         player2.name = "CPU";
         let computerOption = Math.floor(Math.random()*2.999);
@@ -121,7 +122,7 @@ function goToChoice(){
         checkListEvents.thirdScreenShouldShowed = true;
         pcEnable();
         player2Disable();
-    } else if(gameMode.modeGame.value == 'player'){
+    } else if(gameMode.modeGame.value == 'player') {
         player2.name = "";
         player2.election = "";
 //        isCPU = false;
@@ -142,24 +143,69 @@ function goToChoice(){
 
 
 function backToLastScren() {
+    
+    if(checkListEvents.firstPlayerName == false && 
+        checkListEvents.firstPlayerSelection == false){
+            console.log('Se reinicia el juego')
+            restart();
+        }
+
+    if(checkListEvents.firstPlayerName == true && 
+        checkListEvents.firstPlayerSelection == true &&
+        checkListEvents.secondPlayerName == false && 
+        checkListEvents.secondPlayerSelection == false &&
+        checkListEvents.thirdScreenShouldShowed == false &&
+        checkListEvents.thirdScreenWasShowed == true &&
+        contEvent == false &&
+        thirdScreen.style.display == 'block'
+        ){
+            console.log('Se regresa al primer choice')
+            optionSelected.reset();
+            secondScreen.style.display = 'block';
+            thirdScreen.style.display = 'none';
+            collectionPlayer.choiceHeadP2.style.display = 'none';
+            collectionPlayer.choiceHeadP1.style.display = 'inline-block';
+            secondPlayerData = false;
+            player1.name = '';
+            player1.election = '';
+            checkListEvents.firstPlayerName = false;
+            checkListEvents.firstPlayerSelection = false;
+            checkListEvents.thirdScreenWasShowed = false;
+    }
+    if(
+        secondScreen.style.display == 'block' &&
+        checkListEvents.thirdScreenWasShowed &&
+        thirdScreen.style.display == 'none' &&
+        contEvent == true){
+            console.log('Se regresa al primer third')
+            secondScreen.style.display = 'none';
+            thirdScreen.style.display = 'block';
+            readyHeadGo.style.display = 'none';
+            collectionPlayer.readyHeadReady.style.display = 'inline-block';
+            contEvent = false;
+        }
+        
 
     if (
-        thirdScren.style.display == 'block' && 
+        thirdScreen.style.display == 'block' && 
         checkListEvents.secondPlayerName == true && 
         checkListEvents.secondPlayerSelection == true
         ) {
+            console.log('Se regresa al second player choice')
             secondScreen.style.display = 'block';
+            thirdScreen.style.display = 'none';
             player2.name = '';
             player2.election = '';
             optionSelected.reset();
             playerName.value = '';
             checkListEvents.secondPlayerName = false;
             checkListEvents.secondPlayerSelection = false;
-            contEvent = false;
-        }
-
-        for(let label of myOptions) {
-            label.classList.remove('active');
+            contEvent = true;
+            checkListEvents.thirdScreenShouldShowed = false;
+            checkListEvents.thirdScreenSecondShowed = false;
+            for(let label of myOptions) {
+                label.classList.remove('active');
+            }
         }
 
 /*    if (
@@ -170,16 +216,12 @@ function backToLastScren() {
 
 }
 
+
 function goToNextScreen() {
 
-    /*const firstScreen = document.querySelector('.first-screen');
-    const secondScreen = document.querySelector('.section-choice')
-    const thirdScren = document. querySelector('.ready-screen')
-    const resultScreen = document.querySelector('.results') */
-
-    if (playerName.value == "" && checkListEvents.firstPlayerName == false ){
+    if (playerName.value == "" && checkListEvents.firstPlayerName == false ) {
         alert('Escribe tu nombre, guerrero.');
-    } else if(checkListEvents.firstPlayerName == false){
+    } else if(checkListEvents.firstPlayerName == false) {
         player1.name = playerName.value;
         checkListEvents.firstPlayerName = true;
     }
@@ -203,10 +245,14 @@ function goToNextScreen() {
     }
 
     
-    if(secondPlayerData && checkListEvents.thirdScreenShouldShowed == false) {
+    if(secondPlayerData && 
+        checkListEvents.thirdScreenShouldShowed == false) {
+            console.log('Se ejecuta el segundo choice')
         secondScreen.style.display = 'block';
-        collectionPlayer.choiceHeadP2.style.display = 'inline-block'
-        collectionPlayer.choiceHeadP1.style.display = 'none'
+        thirdScreen.style.display = 'none';
+        collectionPlayer.choiceHeadP2.style.display = 'inline-block';
+        collectionPlayer.choiceHeadP1.style.display = 'none';
+        checkListEvents.thirdScreenWasShowed = true;
     }
     
     if (secondPlayerData &&
@@ -216,14 +262,15 @@ function goToNextScreen() {
         collectionPlayer.choiceHeadP2.style.display == 'inline-block' &&
         checkListEvents.thirdScreenWasShowed == true &&
         contEvent == true) {
-            alert('Haz tu elección, guerrero')
+            alert('Haz tu elección, guerrero');
         } else if(secondPlayerData &&
         checkListEvents.firstPlayerSelection == true &&
         checkListEvents.secondPlayerSelection == false && 
         optionSelected.selection.value != '' && 
         collectionPlayer.choiceHeadP2.style.display == 'inline-block' &&
         checkListEvents.thirdScreenWasShowed == true &&
-        contEvent == true){
+        contEvent == true) {
+            console.log('second player selection es true');
             player2.election = optionSelected.selection.value;
             checkListEvents.secondPlayerSelection = true;
         }
@@ -234,8 +281,8 @@ function goToNextScreen() {
         playerName.value == '' && 
         collectionPlayer.choiceHeadP2.style.display == 'inline-block' &&
         checkListEvents.thirdScreenWasShowed == true &&
-        contEvent == true){
-            alert('Escribe tu nombre, guerrero')  
+        contEvent == true) {
+            alert('Escribe tu nombre, guerrero');
     } else if(secondPlayerData &&
         checkListEvents.firstPlayerName == true &&
         checkListEvents.secondPlayerName == false && 
@@ -243,14 +290,16 @@ function goToNextScreen() {
         collectionPlayer.choiceHeadP2.style.display == 'inline-block' &&
         checkListEvents.thirdScreenWasShowed == true &&
         contEvent == false
-        ){
+        ) {
+        console.log('Se ejecuta el cambio contevent');
         contEvent = true;     
     }   else if (secondPlayerData &&
-    checkListEvents.firstPlayerName == true &&
-    checkListEvents.secondPlayerName == false && 
-        playerName.value != ''){
-        player2.name = playerName.value;
-        checkListEvents.secondPlayerName = true;
+        checkListEvents.firstPlayerName == true &&
+        checkListEvents.secondPlayerName == false && 
+        playerName.value != '') {
+            console.log('Ingresa nombre segundo jugador');
+            player2.name = playerName.value;
+            checkListEvents.secondPlayerName = true;
     }
 
 
@@ -258,10 +307,13 @@ function goToNextScreen() {
         checkListEvents.firstPlayerSelection == true &&
         checkListEvents.secondPlayerName == false && 
         checkListEvents.secondPlayerSelection == false &&
-        checkListEvents.thirdScreenShouldShowed == true
-        ){
+        checkListEvents.thirdScreenShouldShowed == true &&
+        checkListEvents.thirdScreenWasShowed == false
+        ) {
+            console.log('se ejecuta el third 1')
             secondScreen.style.display = 'none';
-            thirdScren.style.display = 'block';
+            thirdScreen.style.display = 'block';
+            optionSelected.reset();
             secondPlayerData = true;
             checkListEvents.thirdScreenShouldShowed = false;
             checkListEvents.thirdScreenWasShowed = true;
@@ -271,8 +323,11 @@ function goToNextScreen() {
         checkListEvents.firstPlayerSelection == true &&
         checkListEvents.secondPlayerName == true &&
         checkListEvents.secondPlayerSelection == true &&
-        checkListEvents.thirdScreenShouldShowed == true
+        checkListEvents.thirdScreenShouldShowed == true &&
+            (checkListEvents.thirdScreenSecondShowed == true  || 
+            gameMode.modeGame.value == "pc")
         ) {
+            console.log('se ejecuta el yan ken po')
             //player2.election = "Japoneses";
             yankenpo(player1.election, player2.election)
         }
@@ -283,21 +338,23 @@ function goToNextScreen() {
         checkListEvents.secondPlayerSelection == true &&
         checkListEvents.thirdScreenShouldShowed == false
         ) {
+            console.log('se ejecuta el third 2')
             secondScreen.style.display = 'none';
-            thirdScren.style.display = 'block';
+            thirdScreen.style.display = 'block';
             readyHeadGo.style.display = 'inline-block';
             collectionPlayer.readyHeadReady.style.display = 'none';
+            checkListEvents.thirdScreenSecondShowed = true;
             checkListEvents.thirdScreenShouldShowed = true;
         }
     
 }
 
 
-    function yankenpo(firstOption, secondOption){
+    function yankenpo(firstOption, secondOption) {
     
         firstScreen.style.display = 'none';
         secondScreen.style.display = 'none';
-        thirdScren.style.display = 'none';
+        thirdScreen.style.display = 'none';
         resultScreen.style.display = 'block';
 
         const player1Name = document.querySelector('#player1-result-name');
@@ -305,12 +362,11 @@ function goToNextScreen() {
 
         const player1Image = document.querySelector('#player1-result-image');
 
-//optionsImages = ["imagenes/greekArmy.jpg", "imagenes/japaneseArmy.jpeg", "imagenes/hunosArmy.jpg"];
-        if(player1.election == "Griegos"){
+        if(player1.election == "Griegos") {
             player1Image.src = optionsImages[0];
-        } else if (player1.election == "Japoneses"){
+        } else if (player1.election == "Japoneses") {
             player1Image.src = optionsImages[1];
-        } else if (player1.election == "Hunos"){
+        } else if (player1.election == "Hunos") {
             player1Image.src = optionsImages[2];
         }
 
@@ -319,11 +375,11 @@ function goToNextScreen() {
 
         const player2Image = document.querySelector('#player2-result-image');
 
-        if(player2.election == "Griegos"){
+        if(player2.election == "Griegos") {
             player2Image.src = optionsImages[0];
-        } else if (player2.election == "Japoneses"){
+        } else if (player2.election == "Japoneses") {
             player2Image.src = optionsImages[1];
-        } else if (player2.election == "Hunos"){
+        } else if (player2.election == "Hunos") {
             player2Image.src = optionsImages[2];
         }
 
@@ -340,19 +396,15 @@ function goToNextScreen() {
             ( firstOption === 'Japoneses' && secondOption === 'Hunos') ||
             ( firstOption === 'Griegos' && secondOption === 'Japoneses') ||
             ( firstOption === 'Hunos' && secondOption === 'Griegos') 
-        ){
-            if(gameMode.modeGame.value == "player"){
+        ) {
+            if(gameMode.modeGame.value == "player") {
                 combatSignboard.innerText = `¡Tú ganas ${player2.name}! los ${player2.election} están orgullosos por aplastar a tus enemigos`
                 resultScreen.style.backgroundImage = "url(imagenes/background-loose.jpg)";
-            } else if (gameMode.modeGame.value == "pc"){
+            } else if (gameMode.modeGame.value == "pc") {
                 combatSignboard.innerText = "La máquina ha ganado."
                 resultScreen.style.backgroundImage = "url(imagenes/background-machine-win.jpg)";
             }
-        
-        //if gamemode == PC backgrounpc
-        //else human background
-        } else if (firstOption === secondOption){
-        //tie()
+        } else if (firstOption === secondOption) {
         combatSignboard.innerText = `¡Empate! Ambos han combatido honrosamente`
         resultScreen.style.backgroundImage = "url(imagenes/background-tie.jpg)"
         }
@@ -363,21 +415,35 @@ function goToNextScreen() {
     function restart() {
         firstScreen.style.display = 'block';
         secondScreen.style.display = 'none';
-        thirdScren.style.display = 'none';
+        thirdScreen.style.display = 'none';
         resultScreen.style.display = 'none';
 
         pcDisabled();
         player2Disable();
         optionSelected.reset();
+        gameMode.reset();        
         
-        checkListEvent.modeSelected = false;
-        checkListEvent.firstPlayerName = false;
-        checkListEvent.firstPlayerSelection = false;
-        checkListEvent.thirdScreenWasShowed = false;
-        checkListEvent.thirdScreenShouldShowed = false;
-        checkListEvent.secondPlayerName = false;
-        checkListEvent.secondPlayerSelection = false;
-        checkListEvent.theResulst = false;
+        for(let label of myOptions) {
+            label.classList.remove('active');
+        }
+        
+        for(let label of modeCase) {
+            label.classList.remove('active');
+        }
+        
+        playerName.value = '';
+        secondPlayerData = false;
+        contEvent = false;
+
+        checkListEvents.modeSelected = false;
+        checkListEvents.firstPlayerName = false;
+        checkListEvents.firstPlayerSelection = false;
+        checkListEvents.thirdScreenWasShowed = false;
+        checkListEvents.thirdScreenSecondShowed = false;
+        checkListEvents.thirdScreenShouldShowed = false;
+        checkListEvents.secondPlayerName = false;
+        checkListEvents.secondPlayerSelection = false;
+        checkListEvents.theResulst = false;
 
         player1.name = "";
         player1.election = "";
