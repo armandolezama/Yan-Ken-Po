@@ -127,7 +127,7 @@ section article h2 {
 .first-options {
     display: inline-flex;
     width: 79%;
-    height: 90%;
+    /*height: 90%;*/
     justify-content: center;
     align-items: center;
 }
@@ -189,7 +189,7 @@ section article h2 {
 }
 
 .center-results {
-    width: 90vw;
+    width: 100vw;
     margin: 0 auto;
 }
 
@@ -239,7 +239,7 @@ section{
 
 .restart-button{
     display: flex;
-    margin: 3vh auto;
+    margin: 0 auto;
     background-color: wheat;
     font-size: 5vh;
     justify-content: center;
