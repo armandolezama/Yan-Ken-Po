@@ -162,6 +162,7 @@ function fightPC(){
 
 
 function fightHuman (){
+    gameMode.modeGame.value = "player"
     player2.name = "";
     player2.election = "";
     checkListEvents.modeSelected = true;

@@ -236,3 +236,12 @@ section{
 
     background-color: cadetblue;
 }
+
+.restart-button{
+    display: flex;
+    margin: 3vh auto;
+    background-color: wheat;
+    font-size: 5vh;
+    justify-content: center;
+    align-items: center;
+}
