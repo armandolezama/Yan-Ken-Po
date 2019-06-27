@@ -152,12 +152,16 @@ function fightPC(){
         playerName.value = '';
         secondPlayerData = false;
         contEvent = false;
+        optionSelected.reset();
         secondScreen.style.display = 'block';
         readyHeadGo.style.display = 'inline-block';
         thirdScreen.style.display = 'none';
         checkListEvents.thirdScreenShouldShowed = true;
         pcEnable();
         player2Disable();
+        for(let label of myOptions) {
+            label.classList.remove('active');
+        }
 }
 
 
@@ -174,20 +178,22 @@ function fightHuman (){
     checkListEvents.secondPlayerName = false;
     checkListEvents.secondPlayerSelection = false;
     checkListEvents.theResulst = false;
-
     playerName.value = '';
     secondPlayerData = false;
     contEvent = false;
-
     player1.name = "";
     player1.election = "";
     player2.name = "";
     player2.election = "";
+    optionSelected.reset();
     secondScreen.style.display = 'block';
     pcDisabled();
     player2Enable();
     collectionPlayer.choiceHeadP2.style.display = 'none';
     readyHeadGo.style.display = 'none';
+    for(let label of myOptions) {
+        label.classList.remove('active');
+    }
 }
 
 function backToLastScren() {
