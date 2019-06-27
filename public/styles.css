@@ -15,19 +15,19 @@
 }
 
 .section-choice {
-    display: block;
+    display: none;
     width: 100vw;
     height: 100vh;
 }
 
 .ready-screen {
-    display: block;
+    display: none;
     width: 100vw;
     height: 100vh;
 }
 
 .results {
-    display: block;
+    display: none;
     width: 100vw;
     height: 100vh;
 }
@@ -187,7 +187,7 @@ section article h2 {
 }
 
 .center-results {
-    width: 60vw;
+    width: 90vw;
     margin: 0 auto;
 }
 
@@ -228,3 +228,9 @@ section{
     border-style: solid;
 }
 
+.figthers, .the-winer, .the-results {
+    font-family: Geneva, Tahoma, sans-serif;
+    font-size: 3vh;
+
+    background-color: cadetblue;
+}
