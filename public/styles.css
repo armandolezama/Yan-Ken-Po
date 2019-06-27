@@ -177,6 +177,8 @@ section article h2 {
 
 .btn-options {
     margin-top: 50%;
+    background-color: wheat;
+    font-size: 2vh;
 }
 
 .two-players-results {
