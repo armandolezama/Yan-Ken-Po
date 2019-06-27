@@ -354,6 +354,7 @@ function goToNextScreen() {
         } else if (firstOption === secondOption){
         //tie()
         combatSignboard.innerText = `¡Empate! Ambos han combatido honrosamente`
+        resultScreen.style.backgroundImage = "url(imagenes/background-tie.jpg)"
         }
             
     }
