@@ -112,7 +112,6 @@ function goToChoice() {
         player2.name = "CPU";
         let computerOption = Math.floor(Math.random()*2.999);
         player2.election = options[computerOption];
-//        isCPU = true;
         checkListEvents.modeSelected = true;
         checkListEvents.secondPlayerName = true;
         checkListEvents.secondPlayerSelection = true;
@@ -125,7 +124,6 @@ function goToChoice() {
     } else if(gameMode.modeGame.value == 'player') {
         player2.name = "";
         player2.election = "";
-//        isCPU = false;
         checkListEvents.modeSelected = true;
         checkListEvents.secondPlayerName = false;
         checkListEvents.secondPlayerSelection = false;
@@ -141,6 +139,55 @@ function goToChoice() {
     }
 }
 
+function fightPC(){
+    player2.name = "CPU";
+        gameMode.modeGame.value = "pc";
+        let computerOption = Math.floor(Math.random()*2.999);
+        player2.election = options[computerOption];
+        checkListEvents.firstPlayerName = false;
+        checkListEvents.firstPlayerSelection = false;
+        checkListEvents.modeSelected = true;
+        checkListEvents.secondPlayerName = true;
+        checkListEvents.secondPlayerSelection = true;
+        playerName.value = '';
+        secondPlayerData = false;
+        contEvent = false;
+        secondScreen.style.display = 'block';
+        readyHeadGo.style.display = 'inline-block';
+        thirdScreen.style.display = 'none';
+        checkListEvents.thirdScreenShouldShowed = true;
+        pcEnable();
+        player2Disable();
+}
+
+
+function fightHuman (){
+    player2.name = "";
+    player2.election = "";
+    checkListEvents.modeSelected = true;
+    checkListEvents.firstPlayerName = false;
+    checkListEvents.firstPlayerSelection = false;
+    checkListEvents.thirdScreenWasShowed = false;
+    checkListEvents.thirdScreenSecondShowed = false;
+    checkListEvents.thirdScreenShouldShowed = false;
+    checkListEvents.secondPlayerName = false;
+    checkListEvents.secondPlayerSelection = false;
+    checkListEvents.theResulst = false;
+
+    playerName.value = '';
+    secondPlayerData = false;
+    contEvent = false;
+
+    player1.name = "";
+    player1.election = "";
+    player2.name = "";
+    player2.election = "";
+    secondScreen.style.display = 'block';
+    pcDisabled();
+    player2Enable();
+    collectionPlayer.choiceHeadP2.style.display = 'none';
+    readyHeadGo.style.display = 'none';
+}
 
 function backToLastScren() {
     
@@ -207,13 +254,6 @@ function backToLastScren() {
                 label.classList.remove('active');
             }
         }
-
-/*    if (
-        secondScreen.style.display == 'block' && 
-        checkListEvents.secondPlayerName == true && 
-        checkListEvents.secondPlayerSelection == true
-        ) */
-
 }
 
 
@@ -349,7 +389,6 @@ function goToNextScreen() {
     
 }
 
-
     function yankenpo(firstOption, secondOption) {
     
         firstScreen.style.display = 'none';
@@ -391,7 +430,6 @@ function goToNextScreen() {
         ) {
         combatSignboard.innerText = `¡Tú ganas ${player1.name}! los ${player1.election} están orgullosos`
         resultScreen.style.backgroundImage = "url(imagenes/background-victory.jpg)";
-        //firstPlayerWin()
         } else if (
             ( firstOption === 'Japoneses' && secondOption === 'Hunos') ||
             ( firstOption === 'Griegos' && secondOption === 'Japoneses') ||
